@@ -2,8 +2,8 @@ import { useState } from "react";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
-  const tabs=["Home", "Programs", "Mentors", "Organizations", "About"];//thse are the tabs required for the page
-  const links_tabs={"Home":"#","Program":"#","Mentors":"#", "Organizations":"#", "About":"#"}; //links to these above tabse are these
+  const tabs=["Home", "Our Team", "Events", "Gallery", "About"];//thse are the tabs required for the page
+  const links_tabs={"Home":"#","Our Team":"#","Events":"#", "Gallery":"#", "About":"#"}; //links to these above tabse are these
   const [isOpen, setIsOpen] = useState(false);
 
   return (
