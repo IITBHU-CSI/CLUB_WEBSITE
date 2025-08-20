@@ -2,6 +2,8 @@ import { useState } from "react";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
+  const tabs=["Home", "Programs", "Mentors", "Organizations", "About"];//thse are the tabs required for the page
+  const links_tabs={"Home":"#","Program":"#","Mentors":"#", "Organizations":"#", "About":"#"}; //links to these above tabse are these
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -14,10 +16,6 @@ function Navbar() {
                 src={csiLogo}
                 alt="CSI Logo"
                 className="h-12 w-12"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "flex";
-                }}
               />
               <div className="w-8 h-8 bg-black   items-center justify-center text-white font-bold text-lg hidden">
                 CSI
@@ -28,13 +26,13 @@ function Navbar() {
             </span>
           </div>
 
-          {/* Desktop menu */}
+         
           <div className="hidden md:flex items-center space-x-6">
-            {["Home", "Programs", "Mentors", "Organizations", "About"].map(
+            {tabs.map(
               (item) => (
                 <a
                   key={item}
-                  href="#"
+                  href={links_tabs["item"]}
                   className="text-sm font-medium hover:text-blue-700 transition"
                 >
                   {item}
@@ -95,11 +93,11 @@ function Navbar() {
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {["Home", "Programs", "Mentors", "Organizations", "About"].map(
+            {tabs.map(
               (item) => (
                 <div
                   key={item}
-                  href="#"
+                  href={links_tabs["item"]}
                   className="block px-3 py-2 rounded-md text-base
                   font-medium hover:text-blue-700 cursor-pointer"
                   onClick={() => setIsOpen(false)}
