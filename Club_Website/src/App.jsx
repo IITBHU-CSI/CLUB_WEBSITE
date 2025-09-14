@@ -5,7 +5,7 @@ function App() {
     <div>
       <h1 className="text-3xl font-bold ">
         <Navbar />
-        <HomeVerticals />
+       <HomeVerticals />
       </h1>
     </div>
   );
