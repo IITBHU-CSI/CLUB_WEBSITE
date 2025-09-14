@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -6,6 +7,10 @@ function App() {
       <h1 className="text-3xl font-bold ">
         <Navbar />
       </h1>
+
+      <div>
+        <Home/>
+      </div>
     </div>
   );
 }
