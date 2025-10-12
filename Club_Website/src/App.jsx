@@ -24,12 +24,17 @@ import Navbar from "./components/Navbar";
 import Front from "./components/Front";
 import HomeVerticals from "./components/HomeVerticals";
 import Events from "./components/Events";
+import Front from "./components/Front"; 
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
       <div className="bg-gray-50 min-h-screen">
         <Navbar />
+        <Front />
+        <HomeVerticals />
+        <Footer />
 
         <Routes>
           {/* Home Page */}
