@@ -1,19 +1,16 @@
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import HomeVerticals from "./components/HomeVerticals";
-import Front from "./components/Front";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./Pages/Home";
+import Gallery from "./Pages/Gallery";
 
 function App() {
   return (
-    <div>
-      <h1 className="text">
-        <Navbar />
-        <Front />
-        <HomeVerticals />
-        <Footer />
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
+    </Router>
   );
 }
 
