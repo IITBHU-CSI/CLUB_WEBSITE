@@ -101,23 +101,23 @@ export default function HomeVerticals() {
       ref={containerRef}
       style={{
         minHeight: 500, 
-        background: "white", 
+        background: "#fffdf4", 
         color: "#1a202c", 
         paddingTop: 30,
         paddingBottom: 50, 
       }}
     >
-      <h2 style={{ 
+      <h3 style={{ 
         textAlign: "center", 
         marginBottom: 28, 
-        fontSize: 30, 
+        fontSize: 40, 
         fontWeight: 700,
         background: "linear-gradient(to right, #8B5CF6, #EC4899)",
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent",
       }}>
         Our Club Verticals !
-      </h2>
+      </h3>
 
       <div style={{ position: "relative", width: 700, height: 500, margin: "0 auto" }}>
         {verticals.map((v, i) => {

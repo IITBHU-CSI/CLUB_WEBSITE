@@ -4,12 +4,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontSize: {
-        basefnt: "1.5rem",
-        headfnt: "1.7rem",
-      },
-   
-      keyframes: {
+      // fontSize: {
+      //   basefnt: "1.5rem",
+      //   headfnt: "1.7rem",
+      // },
+  keyframes: {
   scrollUp: {
     '0%': { transform: 'translateY(0)' },
     '100%': { transform: 'translateY(-50%)' }, 

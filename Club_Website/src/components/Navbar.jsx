@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
@@ -7,7 +8,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white text-gray-900 shadow-md font-sans">
+    <nav className="bg-orange-50 text-gray-900 shadow-md font-sans border-b-2 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center space-x-3">
@@ -21,8 +22,8 @@ function Navbar() {
                 CSI
               </div>
             </div>
-            <span className="font-mono text-headfnt font-bold tracking-tight font bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
-              CSI
+            <span className="font-sans text-headfnt font-bold tracking-tight ">
+              Club of Sustainability & Innovation
             </span>
           </div>
 
@@ -30,13 +31,26 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-6">
             {tabs.map(
               (item) => (
-                <a
-                  key={item}
-                  href={links_tabs["item"]}
-                  className="text-sm font-medium hover:text-blue-700 transition"
-                >
-                  {item}
-                </a>
+                // <a
+                //   key={item}
+                //   href={links_tabs["item"]}
+                //   className="text-sm font-medium hover:text-blue-700 transition"
+                // >
+                //   {item}
+                // </a>
+                <Link
+  key={item}
+  to={
+    item === "Home"
+      ? "/"
+      : item === "Our Team"
+      ? "/team"
+      : `/${item.toLowerCase()}`
+  }
+  className="text-sm font-medium hover:text-blue-700 transition"
+>
+  {item}
+</Link>
               )
             )}
             <a
