@@ -33,7 +33,7 @@ function Navbar() {
                 <a
                   key={item}
                   href={links_tabs["item"]}
-                  className="text-sm font-medium hover:text-blue-700 transition"
+                  className="text-sm font-medium hover:text-blue-700 transition cursor-pointer"
                 >
                   {item}
                 </a>

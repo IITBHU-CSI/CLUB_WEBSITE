@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import HomeVerticals from "./components/HomeVerticals";
-import Front from "./components/Front"; 
+import Front from "./components/Front";
 import Footer from "./components/Footer";
 
 function App() {
@@ -12,7 +12,6 @@ function App() {
         <Front />
         <HomeVerticals />
         <Footer />
-
       </h1>
     </div>
   );
