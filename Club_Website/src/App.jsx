@@ -1,20 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import HomeVerticals from "./components/HomeVerticals";
-import Front from "./components/Front"; 
 import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import OurTeam from "./pages/OurTeam";
 
 function App() {
   return (
-    <div>
-      <h1 className="text">
+    <Router>
+      <div className="text">
         <Navbar />
-        <Front />
-        <HomeVerticals />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-team" element={<OurTeam />} />
+        </Routes>
         <Footer />
-
-      </h1>
-    </div>
+      </div>
+    </Router>
   );
 }
 
