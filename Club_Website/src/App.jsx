@@ -6,9 +6,9 @@ import Footer from "./components/Footer";
 import Front from "./components/Front";
 import HomeVerticals from "./components/HomeVerticals";
 import Events from "./components/Events";
-import Gallery from "./pages/Gallery";
-import HomePage from "./pages/HomePage";
-import OurTeam from "./pages/OurTeam";
+import Gallery from "./Pages/Gallery";
+import HomePage from "./Pages/HomePage";
+import OurTeam from "./Pages/OurTeam";
 
 function App() {
   return (

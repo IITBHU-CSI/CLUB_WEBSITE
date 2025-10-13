@@ -18,7 +18,8 @@ const Footer = () => {
             Let’s get started.
           </h2>
           <p className="text-black/70 mb-6 text-lg">
-            Let’s team up to create meaningful, eco-friendly, and innovative projects together!
+            Let’s team up to create meaningful, eco-friendly, and innovative
+            projects together!
           </p>
           <button className="bg-black text-yellow-400 px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition">
             Let’s Chat
@@ -41,11 +42,19 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center gap-6 mb-4 md:mb-0">
           <span className="text-xl font-bold tracking-wide">🤚 Heyo</span>
           <nav className="flex gap-6 text-gray-400 text-sm">
-  <a href="#work" className="hover:text-yellow-400">Work</a>
-  <a href="#about" className="hover:text-yellow-400">About</a>
-  <a href="#contact" className="hover:text-yellow-400">Contact</a>
-  <a href="#social" className="hover:text-yellow-400">Social</a>
-        </nav>
+            <a href="#work" className="hover:text-yellow-400">
+              Work
+            </a>
+            <a href="#about" className="hover:text-yellow-400">
+              About
+            </a>
+            <a href="#contact" className="hover:text-yellow-400">
+              Contact
+            </a>
+            <a href="#social" className="hover:text-yellow-400">
+              Social
+            </a>
+          </nav>
         </div>
 
         {/* Social Icons */}
@@ -68,14 +77,14 @@ const Footer = () => {
         </div>
       </div>
 
-     {/* Copyright */}
-<div className="text-center text-gray-500 text-sm pb-4">
-  © Copyright 2024 <span className="font-semibold text-white">CSI</span> &nbsp; | &nbsp;{" "}
-  <a href="#privacy" className="hover:text-yellow-400">
-    Privacy Policy
-  </a>
-</div>
-
+      {/* Copyright */}
+      <div className="text-center text-gray-500 text-sm pb-4">
+        © Copyright 2024 <span className="font-semibold text-white">CSI</span>{" "}
+        &nbsp; | &nbsp;{" "}
+        <a href="#privacy" className="hover:text-yellow-400">
+          Privacy Policy
+        </a>
+      </div>
     </footer>
   );
 };
