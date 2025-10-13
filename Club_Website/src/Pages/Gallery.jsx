@@ -12,8 +12,6 @@ import t10 from "../assets/Gallery_Images/img10.jpg";
 import t11 from "../assets/Gallery_Images/img11.jpg";
 import t12 from "../assets/Gallery_Images/img12.jpg";
 import t13 from "../assets/Gallery_Images/img13.jpg";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const techEventImages = [t1, t2, t3,t10];
 const culturalEventImages = [t4, t5, t6,t11];
@@ -28,7 +26,6 @@ const events = [
 const Gallery = () => {
   return (
     <>
-      <Navbar />
       <div className="w-full py-10 px-4 md:px-12 lg:px-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 ">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-purple-700">
           Club Gallery
@@ -66,7 +63,6 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
