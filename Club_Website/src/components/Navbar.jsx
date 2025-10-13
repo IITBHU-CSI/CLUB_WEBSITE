@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
   const tabs = ["Home", "Our Team", "Events", "Gallery", "About"];
+
+  // Use route paths that actually exist
   const links_tabs = {
     Home: "/",
-    "Our Team": "#",
-    Events: "#",
+    "Our Team": "/our-team",
+    Events: "/events",
     Gallery: "/gallery",
-    About: "#",
+    About: "/about",
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -30,23 +33,23 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {tabs.map((item) => (
-              <a
+              <Link
                 key={item}
-                href={links_tabs[item]}
-                className="text-sm font-medium hover:text-blue-700 transition cursor-pointer"
+                to={links_tabs[item]}
+                className="text-sm font-medium hover:text-blue-700 transition"
               >
                 {item}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#"
+            <Link
+              to="/join"
               className="ml-4 px-4 py-2 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700 shadow-md"
             >
               Join the Community
-            </a>
+            </Link>
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               type="button"
@@ -94,21 +97,22 @@ function Navbar() {
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {tabs.map((item) => (
-              <a
+              <Link
                 key={item}
-                href={links_tabs[item]}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-700 cursor-pointer"
+                to={links_tabs[item]}
+                className="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-700"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#"
+            <Link
+              to="/join"
               className="block px-3 py-2 rounded-md text-base font-semibold text-white bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700"
+              onClick={() => setIsOpen(false)}
             >
               Join the Community
-            </a>
+            </Link>
           </div>
         </div>
       )}
@@ -117,3 +121,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
