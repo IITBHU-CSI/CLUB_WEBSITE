@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Gallery from "./Pages/Gallery";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -12,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
         <Footer />
       </div>
@@ -20,3 +23,4 @@ function App() {
 }
 
 export default App;
+
