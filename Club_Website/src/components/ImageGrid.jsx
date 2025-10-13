@@ -1,3 +1,4 @@
+
 import React from "react";
 
 const images = [
@@ -32,4 +33,5 @@ const ImageGrid = () => {
   );
 };
 export default ImageGrid;
+
 

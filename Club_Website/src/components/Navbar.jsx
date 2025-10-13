@@ -5,7 +5,7 @@ import csiLogo from "../assets/csi_logo.png";
 function Navbar() {
   const tabs = ["Home", "Our Team", "Events", "Gallery", "About"];
 
-  // Use route paths that actually exist
+  // Route mapping
   const links_tabs = {
     Home: "/",
     "Our Team": "/our-team",
@@ -17,7 +17,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white text-gray-900 shadow-md font-sans">
+    <nav className="bg-orange-50 text-gray-900 shadow-md font-sans border-b-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Title */}
@@ -25,8 +25,8 @@ function Navbar() {
             <div className="w-15 h-15 flex items-center justify-center bg-white rounded-full p-1 border">
               <img src={csiLogo} alt="CSI Logo" className="h-12 w-12" />
             </div>
-            <span className="font-mono font-bold tracking-tight bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
-              CSI
+            <span className="font-sans text-headfnt font-bold tracking-tight bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
+              Club of Sustainability & Innovation
             </span>
           </div>
 
@@ -118,6 +118,9 @@ function Navbar() {
       )}
     </nav>
   );
+}
+
+export default Navbar;
 }
 
 export default Navbar;
