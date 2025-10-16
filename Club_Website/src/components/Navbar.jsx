@@ -1,15 +1,15 @@
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
-  const tabs=["Home", "Our Team", "Events", "Gallery", "About"];//thse are the tabs required for the page
-  const links_tabs={"Home":"#","Our Team":"#","Events":"#", "Gallery":"#", "About":"#"}; //links to these above tabse are these
+  const tabs = ["Home", "Our Team", "Events", "Gallery", "About"];//thse are the tabs required for the page
+  const links_tabs = { "Home": "#", "Our Team": "#", "Events": "#", "Gallery": "#", "About": "#" }; //links to these above tabse are these
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="bg-orange-50 text-gray-900 shadow-md font-sans border-b-2 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-6 sm:px-6 lg:px-20">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex items-center space-x-3">
             <div className="w-15 h-15 flex items-center justify-center bg-white rounded-full p-1 border">
@@ -27,7 +27,7 @@ function Navbar() {
             </span>
           </div>
 
-         
+
           <div className="hidden md:flex items-center space-x-6">
             {tabs.map(
               (item) => (
@@ -39,23 +39,23 @@ function Navbar() {
                 //   {item}
                 // </a>
                 <Link
-  key={item}
-  to={
-    item === "Home"
-      ? "/"
-      : item === "Our Team"
-      ? "/team"
-      : `/${item.toLowerCase()}`
-  }
-  className="text-sm font-medium hover:text-blue-700 transition"
->
-  {item}
-</Link>
+                  key={item}
+                  to={
+                    item === "Home"
+                      ? "/"
+                      : item === "Our Team"
+                        ? "/team"
+                        : `/${item.toLowerCase()}`
+                  }
+                  className="text-sm font-medium hover:text-blue-700 transition"
+                >
+                  {item}
+                </Link>
               )
             )}
             <a
               href="#"
-              className="ml-4 px-4 py-2 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700 shadow-md"
+              className="ml-4 px-4 py-2 rounded-md text-sm font-semibold text-black bg-gradient-to-r bg-yellow-300 shadow-md"
             >
               Join the Community
             </a>

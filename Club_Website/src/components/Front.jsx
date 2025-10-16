@@ -12,7 +12,7 @@ const Front = () => (
         <div className="flex-1 flex flex-col justify-start items-start px-3 md:pl-20 pt-24 md:pt-[70px] relative">
           {/* CSI Gradient Title */}
           <h1 className="text-6xl md:text-[120px] font-serif font-extrabold tracking-tight
-            bg-gradient-to-r from-purple-700 via-pink-500 to-pink-700 bg-clip-text text-transparent mt-0 pt-0">
+            bg-gradient-to-r text-black bg-clip-text  mt-0 pt-0">
             CSI
           </h1>
 

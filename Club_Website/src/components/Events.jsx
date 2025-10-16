@@ -64,7 +64,8 @@ export default function Events() {
   const past = events.filter((e) => e.category === "Past");
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="max-w-8xl mx-auto px-6 sm:px-6 lg:px-20 bg-[#fffdf4]">
+    <div className="bg-gray-50 min-h-screen ">
       {/* Hero Section */}
       {/* <section className="text-center py-10 bg-gradient-to-r from-indigo-600 to-purple-600 text-white"> */}
       <section className="text-center py-7 bg-[#fffdf4] text-black border-b-1">
@@ -78,7 +79,7 @@ export default function Events() {
       {/* Upcoming Events */}
       <section className="px-6 py-12 bg-[#fffdf4] ">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
-          🚀 Upcoming Events
+        Upcoming Events
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {upcoming.map((event) => (
@@ -105,7 +106,7 @@ export default function Events() {
       {/* Past Events */}
       <section className="px-6 py-12 bg-[#fffdf4]">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
-          🎯 Past Events
+         Past Events
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {past.map((event) => (
@@ -129,10 +130,7 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="text-center py-6 text-gray-500 text-sm bg-orange-50 border-b-2 ">
-        © 2025 Events | Club of Sustainability & Innovation
-      </footer>
+    </div>
     </div>
   );
 }
