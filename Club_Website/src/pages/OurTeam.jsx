@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
         
-        <div className="mb-8 w-32 h-32 md:w-40 md:h-40 bg-white rounded-full shadow-2xl flex items-center justify-center p-4 border-4 border-amber-200">
+        <div className="mb-6 sm:mb-8 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 bg-white rounded-full shadow-2xl flex items-center justify-center p-3 sm:p-4 border-4 border-amber-200">
           <img 
             src="/Images/csi-logo.png" 
             alt="CSI Logo"
@@ -30,26 +30,26 @@ const HeroSection = () => {
             onError={(e) => {
               e.target.style.display = 'none';
               const fallback = document.createElement('div');
-              fallback.className = 'w-full h-full bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold';
+              fallback.className = 'w-full h-full bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl font-bold';
               fallback.textContent = 'CSI';
               e.target.parentNode.appendChild(fallback);
             }}
           />
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6">
           <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
             CSI
           </span>
         </h1>
 
-        <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 h-16 md:h-20 flex items-center justify-center">
+        <div className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 h-12 sm:h-16 md:h-20 flex items-center justify-center">
           <Typewriter
             words={[
               "Meet Our Amazing Team",
               "Club of Sustainability and Innovation", 
-              "Building Future with Ideas",
-              "Innovation for a Better Tomorrow",
+              "The People Powering Innovation",
+              "Collaboration that Drives Change",
             ]}
             loop={0}
             cursor
@@ -60,16 +60,16 @@ const HeroSection = () => {
           />
         </div>
 
-        <div className="max-w-2xl mx-auto mb-8">
-          <p className="text-lg md:text-xl text-gray-700 mb-4 font-semibold">
+        <div className="max-w-2xl mx-auto mb-6 sm:mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-3 sm:mb-4 font-semibold">
             Driving innovation and sustainability forward
           </p>
-          <p className="text-base md:text-lg text-gray-600">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600">
             Meet the passionate individuals behind our mission to create a sustainable future through technology and innovation
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 w-full max-w-md sm:max-w-none justify-center items-center">
           <button 
             onClick={() => {
               const teamSection = document.getElementById('team');
@@ -79,7 +79,7 @@ const HeroSection = () => {
                 window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
               }
             }}
-            className="bg-gradient-to-r from-gray-800 to-gray-700 text-white px-8 py-4 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 active:shadow-lg"
+            className="bg-gradient-to-r from-gray-800 to-gray-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 active:shadow-lg text-sm sm:text-base"
           >
             Meet Our Team
           </button>
@@ -92,7 +92,7 @@ const HeroSection = () => {
                 window.open('/about', '_self');
               }
             }}
-            className="border-2 border-amber-600 text-amber-700 px-8 py-4 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition-all duration-300 bg-amber-50/80 backdrop-blur-sm"
+            className="border-2 border-amber-600 text-amber-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition-all duration-300 bg-amber-50/80 backdrop-blur-sm text-sm sm:text-base"
           >
             Our Mission
           </button>
@@ -100,13 +100,13 @@ const HeroSection = () => {
             onClick={() => {
               window.open('/events', '_self');
             }}
-            className="border-2 border-green-600 text-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 bg-green-50/80 backdrop-blur-sm"
+            className="border-2 border-green-600 text-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 bg-green-50/80 backdrop-blur-sm text-sm sm:text-base"
           >
             Join Us
           </button>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-2xl w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-2xl w-full">
           {[
             { number: '50+', label: 'Active Members' },
             { number: '20+', label: 'Projects' },
@@ -114,10 +114,10 @@ const HeroSection = () => {
             { number: '5+', label: 'Years Running' },
           ].map((stat, index) => (
             <div key={index} className="text-center group cursor-pointer">
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
+              <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
                 {stat.number}
               </div>
-              <div className="text-sm md:text-base text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+              <div className="text-xs sm:text-sm md:text-base text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
                 {stat.label}
               </div>
             </div>
@@ -126,7 +126,7 @@ const HeroSection = () => {
 
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 ">
         <div 
           onClick={() => window.scrollBy({ top: window.innerHeight - 50, behavior: 'smooth' })}
           className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center cursor-pointer hover:border-amber-600 transition-colors group"
@@ -135,10 +135,13 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute top-20 left-10 w-4 h-4 bg-amber-400 rounded-full opacity-70 animate-pulse"></div>
-      <div className="absolute top-40 right-20 w-6 h-6 bg-orange-400 rounded-full opacity-60 animate-pulse delay-75"></div>
-      <div className="absolute bottom-40 left-20 w-5 h-5 bg-amber-300 rounded-full opacity-80 animate-pulse delay-150"></div>
-      <div className="absolute bottom-20 right-10 w-3 h-3 bg-gray-400 rounded-full opacity-70 animate-pulse delay-300"></div>
+      <div className="absolute top-20 left-10 w-4 h-4 bg-amber-400 rounded-full opacity-70 animate-pulse hidden sm:block"></div>
+      <div className="absolute top-40 right-20 w-6 h-6 bg-orange-400 rounded-full opacity-60 animate-pulse delay-75 hidden sm:block"></div>
+      <div className="absolute bottom-40 left-20 w-5 h-5 bg-amber-300 rounded-full opacity-80 animate-pulse delay-150 hidden sm:block"></div>
+      <div className="absolute bottom-20 right-10 w-3 h-3 bg-gray-400 rounded-full opacity-70 animate-pulse delay-300 hidden sm:block"></div>
+
+      <div className="absolute top-10 left-5 w-3 h-3 bg-amber-400 rounded-full opacity-70 animate-pulse sm:hidden"></div>
+      <div className="absolute bottom-10 right-5 w-3 h-3 bg-orange-400 rounded-full opacity-60 animate-pulse delay-75 sm:hidden"></div>
 
       <style jsx>{`
         .Typewriter__cursor {
@@ -146,9 +149,10 @@ const HeroSection = () => {
           font-weight: bold;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
           .container {
-            padding-top: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
           }
         }
 
@@ -412,7 +416,7 @@ const VerticalSection = ({ members, verticalType }) => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-nowrap lg:justify-center lg:items-center gap-8 w-full max-w-7xl mx-auto px-4 relative z-10">
+      <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl mx-auto px-4 relative z-10">
         {members.map((member, index) => (
           <MemberCard key={member?.id ?? index} member={member} index={index} />
         ))}
@@ -1043,13 +1047,7 @@ const OurTeam = () => {
         />
       ))}
 
-      <footer className="py-12 px-6 border-t-2 border-border bg-gradient-to-t from-background to-secondary/20">
-        <div className="container mx-auto text-center">
-          <p className="text-muted-foreground">
-            CSI Team 2025 • Club of Sustainability and Innovation
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 };

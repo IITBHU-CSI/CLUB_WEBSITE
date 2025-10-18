@@ -43,12 +43,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 1024px) {
-  .member-section {
-    transform: none !important;
-    perspective: none !important;
-  }
-}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
