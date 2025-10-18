@@ -4,7 +4,9 @@ import ImageGrid from "./ImageGrid";
 import Home from "./Home";
 import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const Front = () => (
+const Front = (
+  
+) => (
   <div className="flex justify-center">
     <div className="w-full">
       <section className="flex flex-col md:flex-row bg-[#fffdf4] min-h-screen">

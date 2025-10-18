@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaTwitter,
   FaInstagram,
@@ -102,11 +101,11 @@ const Footer = () => {
     <FaDribbble />
   </a>
 </div>
-
+</div>
 
       {/* Copyright */}
       <div className="text-center text-gray-500 text-sm pb-4">
-        © Copyright 2024{" "}
+        ©️ Copyright 2024{" "}
         <span className="font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
           CSI
         </span>{" "}
