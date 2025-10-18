@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaTwitter,
   FaInstagram,
@@ -9,27 +8,27 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-[#1a202c] text-white">
       {/* Top Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center bg-yellow-400 rounded-tr-[3rem] rounded-tl-[3rem] p-10 md:p-16 relative overflow-hidden">
+      <div className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-tr-[3rem] rounded-tl-[3rem] p-10 md:p-16 relative overflow-hidden">
         {/* Text Section */}
         <div className="z-10 max-w-lg">
-          <h2 className="text-4xl md:text-5xl font-semibold text-black mb-4">
-            Let’s get started.
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 drop-shadow-lg">
+            Where ideas meet impact.
           </h2>
-          <p className="text-black/70 mb-6 text-lg">
-            Let’s team up to create meaningful, eco-friendly, and innovative
+          <p className="text-white/80 mb-6 text-lg">
+            Let’s team up to create meaningful, sustainable, and innovative
             projects together!
           </p>
-          <button className="bg-black text-yellow-400 px-6 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition">
+          <button className="bg-white text-[#8B5CF6] px-6 py-3 rounded-full text-lg font-medium hover:bg-[#f3e8ff] transition">
             Let’s Chat
           </button>
         </div>
 
         {/* Illustration (hand punching through) */}
-        <div className="absolute right-5 bottom-0 md:right-10 md:bottom-0 w-64 md:w-80">
+        <div className="absolute right-5 bottom-0 md:right-10 md:bottom-0 w-64 md:w-80 opacity-90">
           <img
-            src="/image/7.jpg"
+            src="/Images/7.jpg"
             alt="Friendly hand illustration"
             className="w-full h-auto"
           />
@@ -37,51 +36,81 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center px-8 py-6 border-t border-gray-800">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 py-6 border-t border-[#8B5CF6]/30">
         {/* Logo & Links */}
         <div className="flex flex-col md:flex-row items-center gap-6 mb-4 md:mb-0">
-          <span className="text-xl font-bold tracking-wide">🤚 Heyo</span>
-          <nav className="flex gap-6 text-gray-400 text-sm">
-            <a href="#work" className="hover:text-yellow-400">
+          <span className="text-xl font-bold tracking-wide bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
+            CSI
+          </span>
+          <nav className="flex gap-6 text-gray-300 text-sm">
+            <a href="#work" className="hover:text-[#EC4899] transition">
               Work
             </a>
-            <a href="#about" className="hover:text-yellow-400">
+            <a href="#about" className="hover:text-[#EC4899] transition">
               About
             </a>
-            <a href="#contact" className="hover:text-yellow-400">
+            <a href="#contact" className="hover:text-[#EC4899] transition">
               Contact
             </a>
-            <a href="#social" className="hover:text-yellow-400">
+            <a href="#social" className="hover:text-[#EC4899] transition">
               Social
             </a>
           </nav>
         </div>
 
         {/* Social Icons */}
-        <div className="flex gap-4 text-gray-300 text-lg">
-          <a href="#" className="hover:text-yellow-400">
-            <FaDribbble />
-          </a>
-          <a href="#" className="hover:text-yellow-400">
-            <FaTwitter />
-          </a>
-          <a href="#" className="hover:text-yellow-400">
-            <FaInstagram />
-          </a>
-          <a href="#" className="hover:text-yellow-400">
-            <FaLinkedinIn />
-          </a>
-          <a href="#" className="hover:text-yellow-400">
-            <FaFacebookF />
-          </a>
-        </div>
-      </div>
+<div className="flex gap-4 text-gray-400 text-lg">
+  <a
+    href="https://www.instagram.com/csi_iitbhu/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#EC4899] transition"
+  >
+    <FaInstagram />
+  </a>
+  <a
+    href="https://twitter.com/csi_iitbhu"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#8B5CF6] transition"
+  >
+    <FaTwitter />
+  </a>
+  <a
+    href="https://www.linkedin.com/company/csi-iitbhu"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#8B5CF6] transition"
+  >
+    <FaLinkedinIn />
+  </a>
+  <a
+    href="https://www.facebook.com/iitbhu.csi/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#EC4899] transition"
+  >
+    <FaFacebookF />
+  </a>
+  <a
+    href="https://www.threads.net/@csi_iitbhu"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-[#8B5CF6] transition"
+  >
+    <FaDribbble />
+  </a>
+</div>
+</div>
 
       {/* Copyright */}
       <div className="text-center text-gray-500 text-sm pb-4">
-        © Copyright 2024 <span className="font-semibold text-white">CSI</span>{" "}
-        &nbsp; | &nbsp;{" "}
-        <a href="#privacy" className="hover:text-yellow-400">
+        ©️ Copyright 2024{" "}
+        <span className="font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
+          CSI
+        </span>{" "}
+        &nbsp; | &nbsp;
+        <a href="#privacy" className="hover:text-[#EC4899] transition">
           Privacy Policy
         </a>
       </div>

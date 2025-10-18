@@ -1,8 +1,64 @@
-/* In your index.css or main CSS file */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
+const globalStyles = `
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+`
+.helm-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.helm-card * {
+  transform-style: preserve-3d;
+}
+
+.helm-card {
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+}
+
+.helm-card:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(120, 119, 198, 0.15);
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.member-section, .member-image, .member-info {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.1;
+  }
+}
+
+.floating-particle {
+  animation: float 15s linear infinite;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap'); */
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
