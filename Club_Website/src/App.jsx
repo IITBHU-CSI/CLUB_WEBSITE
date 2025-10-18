@@ -1,40 +1,29 @@
-// import Navbar from "./components/Navbar";
-// import Home from "./components/Home";
-// import HomeVerticals from "./components/HomeVerticals";
-// import Front from "./components/Front"; 
-// import Events from "./components/Events";
-
-// function App() {
-//   return (
-//     <div>
-//       <h1 className="text">
-//         <Navbar />
-//         <Front />
-//         <HomeVerticals />
-        
-//       </h1>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import Front from "./components/Front";
 import HomeVerticals from "./components/HomeVerticals";
 import Events from "./components/Events";
+import Gallery from "./pages/Gallery";
+import HomePage from "./pages/HomePage";
+import OurTeam from "./pages/OurTeam";
 
 function App() {
   return (
     <Router>
       <div className="bg-gray-50 min-h-screen">
         <Navbar />
-
         <Routes>
-          {/* Home Page */}
+          {/* Main Pages */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/gallery" element={<Gallery />} />
+
+          <Route path="/events" element={<Events />} />
+
           <Route
-            path="/"
+            path="/front"
             element={
               <>
                 <Front />
@@ -42,10 +31,8 @@ function App() {
               </>
             }
           />
-
-          {/* Events Page */}
-          <Route path="/events" element={<Events />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
