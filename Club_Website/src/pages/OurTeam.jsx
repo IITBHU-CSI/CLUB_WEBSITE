@@ -1043,13 +1043,7 @@ const OurTeam = () => {
         />
       ))}
 
-      <footer className="py-12 px-6 border-t-2 border-border bg-gradient-to-t from-background to-secondary/20">
-        <div className="container mx-auto text-center">
-          <p className="text-muted-foreground">
-            CSI Team 2025 • Club of Sustainability and Innovation
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 };
