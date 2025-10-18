@@ -15,7 +15,7 @@ const Footer = () => {
         {/* Text Section */}
         <div className="z-10 max-w-lg">
           <h2 className="text-4xl md:text-5xl font-semibold text-black mb-4">
-            Let’s get started.
+            Where ideas meet impact.
           </h2>
           <p className="text-black/70 mb-6 text-lg">
             Let’s team up to create meaningful, eco-friendly, and innovative
@@ -40,7 +40,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between items-center px-8 py-6 border-t border-gray-800">
         {/* Logo & Links */}
         <div className="flex flex-col md:flex-row items-center gap-6 mb-4 md:mb-0">
-          <span className="text-xl font-bold tracking-wide">🤚 Heyo</span>
+          <span className="text-xl font-bold tracking-wide">CSI</span>
           <nav className="flex gap-6 text-gray-400 text-sm">
             <a href="#work" className="hover:text-yellow-400">
               Work
