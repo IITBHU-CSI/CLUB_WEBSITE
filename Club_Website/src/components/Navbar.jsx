@@ -1,63 +1,68 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import csiLogo from "../assets/csi_logo.png";
 
 function Navbar() {
-  const tabs = ["Home", "Our Team", "Events", "Gallery", "About"];
+  const tabs = ["Home", "Our Team", "Events", "Gallery"];
 
-  // Route mapping
   const links_tabs = {
     Home: "/",
     "Our Team": "/our-team",
     Events: "/events",
     Gallery: "/gallery",
-    About: "/about",
+    
   };
 
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-orange-50 text-gray-900 shadow-md font-sans border-b-2">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-orange-50 text-gray-900 shadow-md font-sans border-b-2 sticky top-0 z-50">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-20">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Title */}
-          <div className="flex items-center space-x-3">
-            <div className="w-15 h-15 flex items-center justify-center bg-white rounded-full p-1 border">
-              <img src={csiLogo} alt="CSI Logo" className="h-12 w-12" />
+          <Link to="/" className="flex items-center space-x-3 cursor-pointer">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-orange-50">
+              <img
+                src={csiLogo}
+                alt="CSI Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="font-sans text-headfnt font-bold tracking-tight bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent">
+            <span
+              className="font-bold tracking-tight text-[#880163] text-sm sm:text-base md:text-lg lg:text-xl"
+            >
               Club of Sustainability & Innovation
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {tabs.map((item) => (
               <Link
                 key={item}
                 to={links_tabs[item]}
-                className="text-sm font-medium hover:text-blue-700 transition"
+                className={`px-3 py-2 rounded-md font-medium text-sm sm:text-base ${
+                  location.pathname === links_tabs[item]
+                    ? "bg-[#880163] text-white shadow-md"
+                    : "text-gray-900 hover:bg-gray-100"
+                }`}
               >
                 {item}
               </Link>
             ))}
-            <Link
-              to="/join"
-              className="ml-4 px-4 py-2 rounded-md text-sm font-semibold text-white bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700 shadow-md"
-            >
-              Join the Community
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-800 hover:bg-gray-100 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#880163]"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
             >
+              <span className="sr-only">Open main menu</span>
               {isOpen ? (
                 <svg
                   className="block h-6 w-6"
@@ -95,24 +100,21 @@ function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 bg-orange-50">
             {tabs.map((item) => (
               <Link
                 key={item}
                 to={links_tabs[item]}
-                className="block px-3 py-2 rounded-md text-base font-medium hover:text-blue-700"
                 onClick={() => setIsOpen(false)}
+                className={`block px-3 py-2 rounded-md font-medium text-sm sm:text-base ${
+                  location.pathname === links_tabs[item]
+                    ? "bg-[#880163] text-white shadow-md"
+                    : "text-gray-900 hover:bg-gray-100"
+                }`}
               >
                 {item}
               </Link>
             ))}
-            <Link
-              to="/join"
-              className="block px-3 py-2 rounded-md text-base font-semibold text-white bg-gradient-to-r from-purple-700 to-pink-600 hover:from-purple-800 hover:to-pink-700"
-              onClick={() => setIsOpen(false)}
-            >
-              Join the Community
-            </Link>
           </div>
         </div>
       )}
@@ -121,4 +123,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

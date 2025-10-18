@@ -83,7 +83,7 @@ const HeroSection = () => {
           >
             Meet Our Team
           </button>
-          <button 
+          {/* <button 
             onClick={() => {
               const aboutSection = document.getElementById('about');
               if (aboutSection) {
@@ -95,15 +95,15 @@ const HeroSection = () => {
             className="border-2 border-amber-600 text-amber-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-amber-600 hover:text-white transition-all duration-300 bg-amber-50/80 backdrop-blur-sm text-sm sm:text-base"
           >
             Our Mission
-          </button>
-          <button 
+          </button> */}
+          {/* <button 
             onClick={() => {
               window.open('/events', '_self');
             }}
             className="border-2 border-green-600 text-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 bg-green-50/80 backdrop-blur-sm text-sm sm:text-base"
           >
             Join Us
-          </button>
+          </button> */}
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-2xl w-full">

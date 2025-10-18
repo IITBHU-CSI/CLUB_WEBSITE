@@ -5,8 +5,12 @@ import Footer from "../components/Footer";
 
 const HomePage = () => (
   <>
-        <Front />
-        <HomeVerticals />
+    <div >
+      <Front />
+
+    </div>
+
+    <HomeVerticals />
   </>
 );
 

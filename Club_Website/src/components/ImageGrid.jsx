@@ -14,7 +14,7 @@ const animationClasses = ["animate-up", "animate-down", "animate-up"];
 
 const ImageGrid = () => {
   return (
-    <div className="flex gap-6 h-[450px] md:h-[530px] overflow-hidden">
+    <div   className="flex gap-6 lg:h-full  xl:h-full sm:max-h-[600px] max-[650px]:h-[50vh] md:max-h-[600px] pb-20  overflow-hidden">
       {animationClasses.map((anim, idx) => (
         <div key={idx} className="flex-1 overflow-hidden">
           <div className={`flex flex-col gap-4 ${anim}`}>
