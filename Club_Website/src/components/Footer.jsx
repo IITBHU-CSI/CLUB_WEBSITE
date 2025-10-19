@@ -29,7 +29,7 @@ const Footer = () => {
         {/* Illustration (hand punching through) */}
         <div className="absolute right-5 bottom-0 md:right-10 md:bottom-0 w-64 md:w-80 opacity-90">
           <img
-            src="/Images/7.jpg"
+            src="/Images/csi7.Png"
             alt="Friendly hand illustration"
             className="w-full h-auto"
           />
