@@ -137,5 +137,32 @@ export const teamData = {
         image: "/Images/team/member-11.jpg"  
       },
     ],
+    creative: [
+      { 
+        id: "creative1", 
+        name: "S Adithyaraj", 
+        position: "Creative Lead", 
+        vertical: "creative", 
+        contact: { 
+          email: "adithyaraj@csi.org.in",
+          phone: "+91 98765 43230",
+          linkedin: "https://linkedin.com/in/adithyaraj"
+        }, 
+        image: "/Images/team/member-12.jpg" 
+      },
+      { 
+        id: "creative2", 
+        name: "Vedic Bhatnagar", 
+        position: "Design Specialist", 
+        vertical: "creative", 
+        contact: { 
+          email: "vedic@csi.org.in",
+          phone: "+91 98765 43231",
+          linkedin: "https://linkedin.com/in/vedic"
+        }, 
+        image: "/Images/team/member-13.jpg" 
+      },
+ 
+    ],
   },
 };

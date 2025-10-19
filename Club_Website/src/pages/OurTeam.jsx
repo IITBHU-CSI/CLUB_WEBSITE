@@ -38,7 +38,7 @@ const HeroSection = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6">
-          <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">
+          <span className="text-[#880163] w">
             CSI
           </span>
         </h1>
@@ -79,7 +79,7 @@ const HeroSection = () => {
                 window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
               }
             }}
-            className="bg-gradient-to-r from-gray-800 to-gray-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 active:shadow-lg text-sm sm:text-base"
+            className="bg-gradient-to-r from-[#880163] to-[#ae0080d3] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:from-[#ae0080d3] hover:to-[#880163] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0 active:shadow-lg text-sm sm:text-base"
           >
             Meet Our Team
           </button>
@@ -173,6 +173,16 @@ const HeroSection = () => {
 export const HelmHero = ({ helms }) => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current || cardsRef.current.length === 0) return;
@@ -217,10 +227,20 @@ export const HelmHero = ({ helms }) => {
   });
 
   const [secretary, ...jointSecretaries] = sortedHelms;
-  const displayHelms =
-    jointSecretaries.length >= 2
-      ? [jointSecretaries[0], secretary, jointSecretaries[1]]
-      : [secretary, ...jointSecretaries];
+  
+  const getDisplayHelms = () => {
+    if (windowWidth < 768) {
+      return [secretary, ...jointSecretaries];
+    } else if (windowWidth < 1024) {
+      return [secretary, ...jointSecretaries];
+    } else {
+      return jointSecretaries.length >= 2 
+        ? [jointSecretaries[0], secretary, jointSecretaries[1]]
+        : [secretary, ...jointSecretaries];
+    }
+  };
+
+  const displayHelms = getDisplayHelms();
 
   return (
     <section ref={sectionRef} className="py-20 px-4 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
@@ -238,7 +258,11 @@ export const HelmHero = ({ helms }) => {
               key={member?.id ?? index}
               member={member}
               index={index}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => {
+                if (el && !cardsRef.current.includes(el)) {
+                  cardsRef.current[index] = el;
+                }
+              }}
             />
           ))}
         </div>
@@ -306,7 +330,7 @@ const MemberCard = ({ member, index, ref }) => {
             ref={imageRef}
             src={member.image} 
             alt={member.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             onError={(e) => {
               e.target.style.display = 'none';
             }}
@@ -378,6 +402,11 @@ const VerticalSection = ({ members, verticalType }) => {
       component: <OutreachNetworkBackground />,
       gradient: "bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50",
       info: { title: "Outreach Team", subtitle: "Community & Communication" }
+    },
+    creative: {
+      component: <DesignMediaBackground />,
+      gradient: "bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50",
+      info: { title: "Creative Team", subtitle: "Crafting Visual Excellence" }
     }
   };
 
@@ -1028,7 +1057,288 @@ const OutreachNetworkBackground = () => {
     </div>
   );
 };
+const DesignMediaBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={`tool-${i}`}
+          className="absolute design-tool"
+          style={{
+            left: `${10 + (i * 12)}%`,
+            top: `${20 + (i * 8)}%`,
+            animationDelay: `${i * 1.5}s`,
+            animationDuration: `${18 + i * 2}s`
+          }}
+        >
+          <svg width="45" height="45" viewBox="0 0 45 45" className="opacity-30">
+            {i % 4 === 0 && (
+              <g>
+                <rect x="10" y="10" width="25" height="25" rx="2" fill="none" stroke="#f59e0b" strokeWidth="2">
+                  <animate attributeName="stroke-dasharray" values="0,100;50,50;0,100" dur="4s" repeatCount="indefinite" />
+                </rect>
+                <circle cx="22.5" cy="22.5" r="3" fill="#d97706">
+                  <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </g>
+            )}
+            {i % 4 === 1 && (
+              <g>
+                <circle cx="22.5" cy="22.5" r="12" fill="none" stroke="#ea580c" strokeWidth="2">
+                  <animate attributeName="stroke-dashoffset" values="0;100;0" dur="3s" repeatCount="indefinite" />
+                </circle>
+                <path d="M15 15 L30 30 M30 15 L15 30" stroke="#f59e0b" strokeWidth="2">
+                  <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite" />
+                </path>
+              </g>
+            )}
+            {i % 4 === 2 && (
+              <g>
+                <polygon points="22.5,10 35,35 10,35" fill="none" stroke="#fbbf24" strokeWidth="2">
+                  <animate attributeName="stroke" values="#fbbf24;#f59e0b;#fbbf24" dur="3s" repeatCount="indefinite" />
+                </polygon>
+                <rect x="18" y="18" width="9" height="9" fill="#d97706" opacity="0.7">
+                  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" repeatCount="indefinite" />
+                </rect>
+              </g>
+            )}
+            {i % 4 === 3 && (
+              <g>
+                <path d="M12 22.5 Q22.5 12 33 22.5 T12 22.5" fill="none" stroke="#eab308" strokeWidth="2">
+                  <animate attributeName="stroke-dasharray" values="5,5;0,0;5,5" dur="3.5s" repeatCount="indefinite" />
+                </path>
+                <circle cx="22.5" cy="22.5" r="4" fill="#ea580c">
+                  <animate attributeName="fill" values="#ea580c;#f59e0b;#ea580c" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </g>
+            )}
+          </svg>
+        </div>
+      ))}
 
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={`color-${i}`}
+          className="absolute color-swatch rounded-lg shadow-lg"
+          style={{
+            width: `${30 + Math.random() * 40}px`,
+            height: `${20 + Math.random() * 30}px`,
+            background: `linear-gradient(135deg, ${
+              [
+                '#f59e0b', '#d97706', '#ea580c', '#fbbf24', '#eab308',
+                '#f97316', '#fb923c', '#fdba74', '#fed7aa', '#ffedd5'
+              ][i % 10]
+            } ${
+              Math.random() * 30
+            }%, ${
+              [
+                '#eab308', '#f59e0b', '#fbbf24', '#d97706', '#ea580c',
+                '#fb923c', '#f97316', '#fdba74', '#fed7aa', '#ffedd5'
+              ][(i + 5) % 10]
+            } ${70 + Math.random() * 30}%)`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+            animation: `color-float ${15 + Math.random() * 15}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 10}s`,
+            opacity: 0.4
+          }}
+        />
+      ))}
+
+      {[...Array(12)].map((_, i) => (
+        <div
+          key={`typography-${i}`}
+          className="absolute typography-element font-bold opacity-20"
+          style={{
+            fontSize: `${12 + Math.random() * 20}px`,
+            color: ['#d97706', '#ea580c', '#f59e0b', '#eab308'][i % 4],
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            fontFamily: ['serif', 'cursive', 'monospace', 'fantasy'][i % 4],
+            animation: `text-float ${20 + Math.random() * 10}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 8}s`
+          }}
+        >
+          {['DESIGN', 'MEDIA', 'CREATIVE', 'ART', 'UI/UX', 'BRAND', 'VISUAL', 'GRAPHIC', 'TYPE', 'LAYOUT', 'COLOR', 'STYLE'][i]}
+        </div>
+      ))}
+
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={`brush-${i}`}
+          className="absolute brush-stroke"
+          style={{
+            width: `${80 + Math.random() * 120}px`,
+            height: '8px',
+            background: `linear-gradient(90deg, transparent, ${
+              ['#f59e0b', '#d97706', '#ea580c', '#fbbf24'][i % 4]
+            }, transparent)`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            transform: `rotate(${Math.random() * 360}deg)`,
+            borderRadius: '4px',
+            animation: `brush-sweep ${12 + Math.random() * 8}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 6}s`,
+            opacity: 0.3
+          }}
+        />
+      ))}
+
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-12 gap-4 w-full h-full">
+          {[...Array(144)].map((_, i) => (
+            <div
+              key={`grid-${i}`}
+              className="border border-amber-300 rounded-sm"
+            />
+          ))}
+        </div>
+      </div>
+
+      {[...Array(4)].map((_, i) => (
+        <div
+          key={`mockup-${i}`}
+          className="absolute design-mockup bg-white/10 backdrop-blur-sm rounded-lg border border-amber-300/30 shadow-xl"
+          style={{
+            width: `${120 + Math.random() * 80}px`,
+            height: `${80 + Math.random() * 60}px`,
+            left: `${10 + (i * 25)}%`,
+            top: `${15 + (i * 18)}%`,
+            animation: `mockup-float ${18 + i * 3}s ease-in-out infinite`,
+            animationDelay: `${i * 2}s`,
+            overflow: 'hidden'
+          }}
+        >
+          <div className="w-full h-4 bg-gradient-to-r from-amber-400 to-yellow-500 opacity-40"></div>
+          <div className="p-2">
+            <div className="flex space-x-1 mb-2">
+              <div className="w-3 h-3 rounded-full bg-red-400 opacity-60"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-400 opacity-60"></div>
+              <div className="w-3 h-3 rounded-full bg-green-400 opacity-60"></div>
+            </div>
+            <div className="grid grid-cols-3 gap-1">
+              {[...Array(9)].map((_, j) => (
+                <div
+                  key={j}
+                  className="h-2 bg-gradient-to-r from-amber-300 to-yellow-400 rounded opacity-30"
+                  style={{
+                    animation: `pulse ${2 + j * 0.5}s ease-in-out infinite`,
+                    animationDelay: `${j * 0.2}s`
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <style jsx>{`
+        .design-tool {
+          animation: design-spin-float 20s ease-in-out infinite;
+        }
+
+        .color-swatch {
+          filter: blur(0.5px);
+        }
+
+        .typography-element {
+          mix-blend-mode: multiply;
+        }
+
+        .brush-stroke {
+          filter: blur(1px);
+        }
+
+        .design-mockup {
+          border-left: 4px solid;
+          border-image: linear-gradient(to bottom, #f59e0b, #d97706) 1;
+        }
+
+        @keyframes design-spin-float {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg) scale(1);
+            opacity: 0.3;
+          }
+          25% {
+            transform: translate(20px, -30px) rotate(90deg) scale(1.1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translate(40px, -20px) rotate(180deg) scale(1);
+            opacity: 0.3;
+          }
+          75% {
+            transform: translate(20px, -40px) rotate(270deg) scale(0.9);
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes color-float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg) scale(1);
+          }
+          33% {
+            transform: translateY(-25px) rotate(120deg) scale(1.1);
+          }
+          66% {
+            transform: translateY(15px) rotate(240deg) scale(0.9);
+          }
+        }
+
+        @keyframes text-float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.2;
+          }
+          50% {
+            transform: translateY(-40px) rotate(5deg);
+            opacity: 0.4;
+          }
+        }
+
+        @keyframes brush-sweep {
+          0%, 100% {
+            transform: translateX(0px) rotate(0deg);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateX(50px) rotate(180deg);
+            opacity: 0.1;
+          }
+        }
+
+        @keyframes mockup-float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.7;
+          }
+          25% {
+            transform: translateY(-20px) rotate(1deg);
+            opacity: 0.9;
+          }
+          50% {
+            transform: translateY(-10px) rotate(-1deg);
+            opacity: 0.7;
+          }
+          75% {
+            transform: translateY(10px) rotate(0.5deg);
+            opacity: 0.8;
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 0.3;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
 const OurTeam = () => {
   const currentHelms = teamData.helms || [];
   const verticals = teamData.verticals || {};
