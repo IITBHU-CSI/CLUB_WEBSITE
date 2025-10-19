@@ -7,13 +7,17 @@ import outreach from "/vertical_ic/outreach.png";
 import ai from "/vertical_ic/ai.png";
 import creative from "/vertical_ic/creative.png";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const verticals = [
-  { label: "ESP-Advisory", icon: advisory, details: "Expert guidance from pros." },
-  { label: "Outreach", icon: outreach, details: "Collaborate with peers." },
   { label: "Creative", icon: creative, details: "Earn recognition & prizes." },
+  { label: "Outreach", icon: outreach, details: "Collaborate with peers." },
+
+  {
+    label: "ESP-Advisory",
+    icon: advisory,
+    details: "Expert guidance from pros.",
+  },
   { label: "AI-ML", icon: ai, details: "Learn hot technologies." },
   { label: "SDE", icon: sde, details: "Find your next step." },
 ];
@@ -37,7 +41,7 @@ export default function HomeVerticals() {
   useEffect(() => {
     const updateDims = () => {
       const containerWidth = containerRef.current?.offsetWidth || 700;
-      const scale = containerWidth / 700; 
+      const scale = containerWidth / 700;
       setDims({
         iconSize: 70 * scale,
         radius: 220 * scale,
@@ -79,7 +83,14 @@ export default function HomeVerticals() {
       const dx = finalLeft - startLeft;
       const dy = finalTop - startTop;
 
-      gsap.set(el, { left: startLeft, top: startTop, x: 0, y: 0, scale: 0.3, opacity: 0 });
+      gsap.set(el, {
+        left: startLeft,
+        top: startTop,
+        x: 0,
+        y: 0,
+        scale: 0.3,
+        opacity: 0,
+      });
       gsap.to(el, {
         x: dx,
         y: dy,
@@ -116,24 +127,27 @@ export default function HomeVerticals() {
   const arcRadius = dims.radius - 10;
   const start = polarToCartesian(arcRadius, 180);
   const end = polarToCartesian(arcRadius, 360);
-  const arcPath = `M ${centerX + start.x} ${centerY - start.y} A ${arcRadius} ${arcRadius} 0 0 1 ${centerX + end.x} ${centerY - end.y}`;
+  const arcPath = `M ${centerX + start.x} ${
+    centerY - start.y
+  } A ${arcRadius} ${arcRadius} 0 0 1 ${centerX + end.x} ${centerY - end.y}`;
 
   return (
-    <div ref={containerRef} className="w-full max-w-full mx-auto relative pb-32 bg-gradient-to-br from-yellow-50 to-amber-100">
-      <div
-    className="absolute inset-0 pointer-events-none opacity-10"
-    style={{
-      backgroundImage: `
-        radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, #ec4899 0%, transparent 50%)
-      `
-    }}
-  />
-      <h3 className="text-center sm:mb-8 lg:mb-20 font-bold text-[clamp(1.8rem,4vw,2.5rem)] bg-gradient-to-r bg-clip-text text-[#880163]">
+    <div
+      ref={containerRef}
+      className="w-full max-w-full mx-auto relative pb-32 "
+    >
+      <div className="absolute inset-0 pointer-events-none opacity-10" />
+      <h3 className="text-center mb-20 sm:mb-0 lg:mb-20 lg:pb-10 sm:pb-20  font-bold text-[clamp(1.8rem,4vw,2.5rem)] bg-gradient-to-r bg-clip-text text-[#880163]">
         Our Club Verticals
       </h3>
 
-      <div style={{ position: "relative", width: "100%", paddingBottom: dims.radius }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          paddingBottom: dims.radius,
+        }}
+      >
         {verticals.map((v, i) => (
           <div
             key={v.label}
@@ -172,7 +186,8 @@ export default function HomeVerticals() {
             }}
           >
             {/* Render imported image if icon is an image path, otherwise render emoji/text */}
-            {typeof v.icon === "string" && /\.(png|jpe?g|svg|webp|gif)$/i.test(v.icon) ? (
+            {typeof v.icon === "string" &&
+            /\.(png|jpe?g|svg|webp|gif)$/i.test(v.icon) ? (
               <img
                 src={v.icon}
                 alt={v.label}
@@ -185,7 +200,9 @@ export default function HomeVerticals() {
                 }}
               />
             ) : (
-              <div style={{ pointerEvents: "none", lineHeight: 1 }}>{v.icon}</div>
+              <div style={{ pointerEvents: "none", lineHeight: 1 }}>
+                {v.icon}
+              </div>
             )}
           </div>
         ))}
@@ -220,11 +237,16 @@ export default function HomeVerticals() {
         >
           <div style={{ fontSize: "clamp(2rem, 6vw, 2.5rem)" }}>
             {typeof verticals[selected].icon === "string" &&
-              /\.(png|jpe?g|svg|webp|gif)$/i.test(verticals[selected].icon) ? (
+            /\.(png|jpe?g|svg|webp|gif)$/i.test(verticals[selected].icon) ? (
               <img
                 src={verticals[selected].icon}
                 alt={verticals[selected].label}
-                style={{ width: "2.2rem", height: "2.2rem", objectFit: "contain", display: "inline-block" }}
+                style={{
+                  width: "2.2rem",
+                  height: "2.2rem",
+                  objectFit: "contain",
+                  display: "inline-block",
+                }}
               />
             ) : (
               verticals[selected].icon
@@ -235,13 +257,15 @@ export default function HomeVerticals() {
               fontWeight: 700,
               fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
               marginTop: 8,
-              color: "#880163",           // <- solid black text
+              color: "#880163", // <- solid black text
             }}
           >
             {verticals[selected].label}
           </div>
 
-          <div style={{ marginTop: 10, fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}>
+          <div
+            style={{ marginTop: 10, fontSize: "clamp(0.9rem, 2vw, 1.1rem)" }}
+          >
             {verticals[selected].details}
           </div>
         </div>
@@ -249,4 +273,3 @@ export default function HomeVerticals() {
     </div>
   );
 }
-
