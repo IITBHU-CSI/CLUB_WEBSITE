@@ -120,8 +120,6 @@ const Footer = () => {
   </a>
   <a
    href="mailto:csi@iitbhu.ac.in"
-    target="_blank"
-    rel="noopener noreferrer"
     className="hover:text-[#EC4899] transition"
   >
     <FaEnvelope />
