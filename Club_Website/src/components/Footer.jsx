@@ -26,14 +26,15 @@ const Footer = () => {
           </button>
         </div>
 
-        {/* Illustration (hand punching through) */}
-        <div className="absolute right-5 bottom-0 md:right-10 md:bottom-0 w-64 md:w-80 opacity-90">
-          <img
-            src="/Images/csi7.Png"
-            alt="Friendly hand illustration"
-            className="w-full h-auto"
-          />
-        </div>
+       
+<div className="absolute right-10 bottom-0 md:right-16 md:bottom-2 w-72 md:w-[380px]">
+  <img
+    src="/Images/csi7.Png"
+    alt="Eco innovation illustration"
+    className="w-full h-auto rounded-2xl shadow-lg border border-white/20 object-cover"
+  />
+</div>
+
       </div>
 
       {/* Bottom Section */}
