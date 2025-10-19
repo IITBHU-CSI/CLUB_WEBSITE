@@ -58,20 +58,23 @@ const Footer = () => {
             </a>
           </nav> */}
           <nav className="flex gap-2 text-gray-300 text-sm items-center">
-  <a
-    href="mailto:csi@iitbhu.ac.in"
-    className="hover:text-[#EC4899] transition flex items-center gap-2"
+          <a
+  href="https://mail.google.com/mail/?view=cm&to=csi@iitbhu.ac.in"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-[#EC4899] transition flex items-center gap-2"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    className="w-5 h-5"
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      className="w-5 h-5"
-    >
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8.99l8 6 8-6V18H4z" />
-    </svg>
-    csi@iitbhu.ac.in
-  </a>
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0..." />
+  </svg>
+  csi@iitbhu.ac.in
+</a>
+
 </nav>
 
         </div>
@@ -119,11 +122,14 @@ const Footer = () => {
     <FaDribbble />
   </a>
   <a
-   href="mailto:csi@iitbhu.ac.in"
-    className="hover:text-[#EC4899] transition"
-  >
-    <FaEnvelope />
-  </a>
+  href="https://mail.google.com/mail/?view=cm&to=csi@iitbhu.ac.in"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-[#EC4899] transition"
+>
+  <FaEnvelope />
+</a>
+
 </div>
 </div>
 
