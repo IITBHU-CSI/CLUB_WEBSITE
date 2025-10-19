@@ -9,30 +9,30 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1a202c] text-white">
+    <footer className="bg-gradient-to-b from-[#FFF7E1] to-[#FFD580] text-[#333333]">
       {/* Top Section */}
-      <div className="flex flex-col md:flex-row justify-between items-center bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] rounded-tr-[3rem] rounded-tl-[3rem] p-10 md:p-16 relative overflow-hidden">
-        {/* Text Section */}
+      <div className="flex flex-col md:flex-row justify-between items-center rounded-tr-[3rem] rounded-tl-[3rem] p-10 md:p-16 relative overflow-hidden">
+    {/* Text Section */}
         <div className="z-10 max-w-lg">
-          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 drop-shadow-lg">
-            Where ideas meet impact.
-          </h2>
-          <p className="text-white/80 mb-6 text-lg">
-            Let’s team up to create meaningful, sustainable, and innovative
-            projects together!
-          </p>
-          <button className="bg-white text-[#8B5CF6] px-6 py-3 rounded-full text-lg font-medium hover:bg-[#f3e8ff] transition">
-            Let’s Chat
-          </button>
-        </div>
+          <h2 className="text-4xl md:text-5xl font-semibold mb-4 drop-shadow-md text-[#ae0080d3]">
+        Where ideas meet impact.
+      </h2>
+      <p className="text-[#444444] mb-6 text-lg opacity-90">
+        Let’s team up to create meaningful, sustainable, and innovative projects together!
+      </p>
+      <button className="bg-[#FFB347] text-white px-6 py-3 rounded-full text-lg font-medium hover:bg-[#FF9933] transition">
+        Get Started
+      </button>
+    </div>
 
-       
+        {/* Illustration (light bulb with plant) */}
 <div className="absolute right-10 bottom-0 md:right-16 md:bottom-2 w-72 md:w-[380px]">
-  <img
-    src="/Images/csi7.Png"
-    alt="Eco innovation illustration"
-    className="w-full h-auto rounded-2xl shadow-lg border border-white/20 object-cover"
-  />
+<img
+  src="/Images/csi7.Png"
+  alt="Eco innovation illustration"
+  className="w-full h-auto rounded-2xl shadow-lg border border-white/20 object-cover animate-emerge"
+/>
+
 </div>
 
       </div>
@@ -58,7 +58,7 @@ const Footer = () => {
               Social
             </a>
           </nav> */}
-          <nav className="flex gap-2 text-gray-300 text-sm items-center">
+          <nav className="flex gap-2 text-black text-sm items-center">
           <a
   href="https://mail.google.com/mail/?view=cm&to=csi@iitbhu.ac.in"
   target="_blank"
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
 
         {/* Social Icons */}
-<div className="flex gap-4 text-gray-400 text-lg">
+<div className="flex gap-4 text-black text-lg">
   <a
     href="https://www.instagram.com/csi_iitbhu/"
     target="_blank"
@@ -135,7 +135,7 @@ const Footer = () => {
 </div>
 
       {/* Copyright */}
-      <div className="text-center text-gray-500 text-sm pb-4">
+      <div className="text-center text-black text-sm pb-4">
         ©️ Copyright 2024{" "}
         <span className="font-semibold bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
           CSI
