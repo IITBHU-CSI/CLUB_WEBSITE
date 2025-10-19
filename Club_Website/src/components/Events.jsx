@@ -50,6 +50,10 @@ function Event() {
   const eventRefs = useRef([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (!timelineRef.current) return;
 
@@ -58,7 +62,6 @@ function Event() {
       const timelineOffsetTop = timelineRef.current.offsetTop;
       const timelineHeight = timelineRef.current.offsetHeight;
 
-      // Start progress only when user scrolls to the timeline section
       const startOffset = timelineOffsetTop - windowHeight * 0.5;
       const endOffset = timelineOffsetTop + timelineHeight - windowHeight * 0.2;
 
@@ -70,10 +73,8 @@ function Event() {
           progress = 1;
         }
       }
-
       setScrollProgress(Math.max(0, Math.min(1, progress)));
 
-      // Find active event based on scroll position
       const centerY = windowHeight / 2;
       let closestIndex = 0;
       let minDistance = Infinity;
@@ -88,31 +89,21 @@ function Event() {
           }
         }
       });
-
       setActiveEventIndex(closestIndex);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Don't call handleScroll immediately to ensure progress starts at 0
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-100">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" 
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%),
-              radial-gradient(circle at 75% 75%, #ec4899 0%, transparent 50%)
-            `
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-100 py-16">
       {/* Header */}
       <div className="text-center mb-16">
-        <h1 className="text-5xl font-bold  text-[#880163] mb-4">Our Journey</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        <h1 className="text-xl sm:text-5xl font-bold text-[#880163] mb-4">
+          Our Journey
+        </h1>
+        <p className="text-sm sm:text-3xl text-gray-600 max-w-2xl mx-auto mb-8">
           Discover the milestones that shaped our club's evolution from
           inception to innovation
         </p>
@@ -122,10 +113,14 @@ function Event() {
       <div className="max-w-6xl mx-auto px-4 relative">
         <div ref={timelineRef} className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full z-10">
-            {/* White background line */}
-            <div className="w-full h-full bg-white border border-gray-300"></div>
-            {/* Progress line */}
+          <div
+            className="
+              absolute
+              sm:left-1/2 lg:-translate-x-1/2
+              max-lg:left-8         
+              w-1 h-full bg-white border border-gray-300 z-10
+            "
+          >
             <div
               className="absolute top-0 left-0 w-full transition-all duration-500 ease-out"
               style={{
@@ -141,82 +136,96 @@ function Event() {
               <div
                 key={event.id}
                 ref={(el) => (eventRefs.current[index] = el)}
-                className={`relative flex items-center py-12 ${
-                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                } max-lg:flex-col max-lg:text-center`}
+                className={`
+                  relative flex items-center py-12
+                  ${index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}
+                  max-lg:flex-col max-lg:text-left
+                `}
               >
-                {/* Month Badge */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
+                {/* Month Circle */}
+                <div
+                  className="
+                   absolute z-20 max-sm:left-[30px] left-1/2 -translate-x-1/2 -translate-y-4
+                  "
+                >
                   <div
-                    className={`w-20 h-20 rounded-full flex items-center justify-center font-bold text-white
-                       transition-all duration-300 ${
-                         activeEventIndex === index
-                           ? "scale-110 shadow-lg"
-                           : "bg-gray-400 scale-100"
-                       }`}
-                    style={{
-                      backgroundColor:
-                        activeEventIndex === index ? "#880163" : undefined,
-                    }}
+                    className={`
+                      rounded-full flex items-center justify-center font-bold text-white transition-all duration-300
+                      ${
+                        activeEventIndex === index
+                          ? "scale-110 shadow-lg bg-[#880163]"
+                          : "bg-gray-400 scale-100"
+                      }
+                      lg:w-20 lg:h-20 max-lg:w-12 max-lg:h-12
+                    `}
                   >
                     {event.month}
                   </div>
                 </div>
 
-                {/* Content Side */}
+                {/* Image Section */}
                 <div
-                  className={`w-full lg:w-5/12 ${
-                    index % 2 === 0 ? "pr-20" : "pl-20"
-                  } max-lg:px-8 max-lg:mt-8`}
-                >
-                  <div className="transition-all duration-500">
-                    <h3
-                      className={`text-5xl font-bold mb-8 transition-all duration-300 ${
-                        activeEventIndex === index
-                          ? "scale-105"
-                          : "text-gray-700 scale-100"
-                      }`}
-                      style={{
-                        color:
-                          activeEventIndex === index ? "#880163" : undefined,
-                      }}
-                    >
-                      {event.title}
-                    </h3>
-                    <p
-                      className={`text-2xl leading-relaxed transition-all duration-300 ${
-                        activeEventIndex === index
-                          ? "text-gray-800 scale-105"
-                          : "text-gray-600 scale-100"
-                      }`}
-                    >
-                      {event.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Spacer */}
-                <div className="w-2/12 max-lg:hidden"></div>
-
-                {/* Image Side */}
-                <div
-                  className={`w-full lg:w-5/12 ${
-                    index % 2 === 0 ? "pl-20" : "pr-20"
-                  } max-lg:px-8 max-lg:mt-8`}
+                  className={`
+                    w-full lg:w-7/12  sm:w-6/12
+                    ${index % 2 === 0 ? "lg:pr-50" : "lg:pl-50"}
+                    max-lg:pl-16  sm:pl-20 sm:pr-20  max-lg:mt-8
+                  `}
                 >
                   <div
-                    className={`overflow-hidden rounded-2xl transition-all duration-500 ${
-                      activeEventIndex === index
-                        ? "transform scale-105 shadow-2xl"
-                        : "transform scale-100 shadow-lg"
-                    }`}
+                    className={`
+                      overflow-hidden rounded-2xl transition-all duration-500
+                      ${
+                        activeEventIndex === index
+                          ? "transform scale-105 shadow-2xl"
+                          : "transform scale-100 shadow-lg"
+                      }
+                    `}
                   >
                     <img
                       src={event.imageUrl}
                       alt={event.title}
-                      className="w-full h-80 object-cover hover:scale-110 transition-transform duration-700"
+                      className="
+                        w-full object-cover transition-transform duration-700
+                        lg:h-80 max-lg:h-56 hover:scale-110
+                      "
                     />
                   </div>
+                </div>
+
+                {/* Content Section */}
+                <div
+                  className={`
+                    w-full lg:w-7/12 sm:w-6/12
+                    ${index % 2 === 0 ? "lg:pl-60" : "lg:pr-60"}
+                    max-lg:pl-16 sm:pl-20 sm:pr-20 max-lg:mt-6
+                  `}
+                >
+                  <h3
+                    className={`
+                      font-bold mb-4 transition-all duration-300
+                      ${
+                        activeEventIndex === index
+                          ? "scale-105 text-[#880163]"
+                          : "scale-100 text-gray-700"
+                      }
+                      lg:text-5xl max-lg:text-3xl
+                    `}
+                  >
+                    {event.title}
+                  </h3>
+                  <p
+                    className={`
+                      leading-relaxed transition-all duration-300
+                      ${
+                        activeEventIndex === index
+                          ? "text-gray-800 scale-105"
+                          : "text-gray-600 scale-100"
+                      }
+                      lg:text-2xl max-lg:text-lg
+                    `}
+                  >
+                    {event.description}
+                  </p>
                 </div>
               </div>
             ))}

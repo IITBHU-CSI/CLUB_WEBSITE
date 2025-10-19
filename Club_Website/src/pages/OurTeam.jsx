@@ -7,6 +7,9 @@ import { teamData } from "../data/teamData";
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-yellow-50 to-amber-100">
       <div className="absolute inset-0 opacity-10">
