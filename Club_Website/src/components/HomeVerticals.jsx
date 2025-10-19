@@ -34,11 +34,10 @@ export default function HomeVerticals() {
     radius: 220,
   });
 
-  // Update dimensions relative to parent container
   useEffect(() => {
     const updateDims = () => {
       const containerWidth = containerRef.current?.offsetWidth || 700;
-      const scale = containerWidth / 700; // scale proportionally
+      const scale = containerWidth / 700; 
       setDims({
         iconSize: 70 * scale,
         radius: 220 * scale,
@@ -120,8 +119,17 @@ export default function HomeVerticals() {
   const arcPath = `M ${centerX + start.x} ${centerY - start.y} A ${arcRadius} ${arcRadius} 0 0 1 ${centerX + end.x} ${centerY - end.y}`;
 
   return (
-    <div ref={containerRef} className="w-full max-w-full mx-auto relative  pb-32 bg-[#fffdf4]">
-      <h3 className="text-center sm:mb-8 lg:mb-20 font-bold text-[clamp(1.8rem,4vw,2.5rem)] bg-gradient-to-r bg-clip-text text-[#880163] mb-20">
+    <div ref={containerRef} className="w-full max-w-full mx-auto relative pb-32 bg-gradient-to-br from-yellow-50 to-amber-100">
+      <div
+    className="absolute inset-0 pointer-events-none opacity-10"
+    style={{
+      backgroundImage: `
+        radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, #ec4899 0%, transparent 50%)
+      `
+    }}
+  />
+      <h3 className="text-center sm:mb-8 lg:mb-20 font-bold text-[clamp(1.8rem,4vw,2.5rem)] bg-gradient-to-r bg-clip-text text-[#880163]">
         Our Club Verticals
       </h3>
 

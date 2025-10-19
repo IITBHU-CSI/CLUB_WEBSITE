@@ -62,7 +62,17 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fffdf4] text-black">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-amber-100">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" 
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%),
+              radial-gradient(circle at 75% 75%, #ec4899 0%, transparent 50%)
+            `
+          }}
+        />
+      </div>
       <div className="container mx-auto px-4 py-10" style={{ cursor: 'none' }}>
         <header className="text-center mb-8">
           <h1 className="text-3xl font-semibold text-[#880163]">Our camera roll</h1>

@@ -5,25 +5,34 @@ import Home from "./Home";
 import { FaWhatsapp, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Front = () => (
-  <div className="flex justify-center md:h-[100vh] lg:h-[100vh] xl:h-[100vh] sm:h-full bg-[#fffdf4]">
-    <section className="flex flex-col justify-center md:flex-row  w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-20  md:py-10">
+  <div className="flex justify-center min-h-screen bg-gradient-to-br from-yellow-50 to-amber-100"> 
+    <div
+      className="absolute inset-0 pointer-events-none opacity-10"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, #ec4899 0%, transparent 50%)
+        `
+      }}
+    />
+    <section className="flex flex-col justify-center md:flex-row w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-20 py-10 md:py-10">
 
       {/* LEFT SECTION */}
-      <div className="flex-1 flex flex-col justify-start items-start text-left">
+      <div className="flex-1 flex flex-col justify-center items-start text-left"> 
 
         {/* Main Heading */}
         <h1
           className="
-    font-serif font-extrabold tracking-tight text-[#880163]
-    text-[100px]
-     px-2 pt-0
-  "
+            font-serif font-extrabold tracking-tight text-[#880163]
+            text-[100px]
+            px-2 pt-0
+          "
         >
           CSI
         </h1>
 
         {/* Subheading with Typewriter */}
-        <div className=" font-semibold text-gray-900 leading-snug text-[clamp(1.5rem,4vw,3rem)] max-w-[600px]">
+        <div className="font-semibold text-gray-900 leading-snug text-[clamp(1.5rem,4vw,3rem)] max-w-[600px]">
           <Typewriter
             words={[
               "Club of Sustainability and Innovation",
