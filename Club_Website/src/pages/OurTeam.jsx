@@ -173,6 +173,16 @@ const HeroSection = () => {
 export const HelmHero = ({ helms }) => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current || cardsRef.current.length === 0) return;
@@ -217,10 +227,20 @@ export const HelmHero = ({ helms }) => {
   });
 
   const [secretary, ...jointSecretaries] = sortedHelms;
-  const displayHelms =
-    jointSecretaries.length >= 2
-      ? [jointSecretaries[0], secretary, jointSecretaries[1]]
-      : [secretary, ...jointSecretaries];
+  
+  const getDisplayHelms = () => {
+    if (windowWidth < 768) {
+      return [secretary, ...jointSecretaries];
+    } else if (windowWidth < 1024) {
+      return [secretary, ...jointSecretaries];
+    } else {
+      return jointSecretaries.length >= 2 
+        ? [jointSecretaries[0], secretary, jointSecretaries[1]]
+        : [secretary, ...jointSecretaries];
+    }
+  };
+
+  const displayHelms = getDisplayHelms();
 
   return (
     <section ref={sectionRef} className="py-20 px-4 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
@@ -238,7 +258,11 @@ export const HelmHero = ({ helms }) => {
               key={member?.id ?? index}
               member={member}
               index={index}
-              ref={(el) => (cardsRef.current[index] = el)}
+              ref={(el) => {
+                if (el && !cardsRef.current.includes(el)) {
+                  cardsRef.current[index] = el;
+                }
+              }}
             />
           ))}
         </div>
