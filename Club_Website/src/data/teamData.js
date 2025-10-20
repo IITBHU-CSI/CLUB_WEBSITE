@@ -7,9 +7,9 @@ export const teamData = {
       position: "Joint Secretary", 
       vertical: "helms", 
       contact: { 
-        email: "krish@csi.org.in", 
+        email: "krish.kumar.civ23@itbhu.ac.in", 
         phone: "+91 98765 43211", 
-        linkedin: "https://linkedin.com/in/krish" 
+        linkedin: "https://linkedin.com/in/krish-kumar" 
       }, 
       image: "/Images/team/member-1.jpg" 
     },
@@ -19,9 +19,9 @@ export const teamData = {
       position: "Secretary", 
       vertical: "helms", 
       contact: { 
-        email: "secretary@csi.org.in", 
+        email: "swostik.subhadarshan.eee23@itbhu.ac.in", 
         phone: "+91 98765 43210", 
-        linkedin: "https://linkedin.com/in/swostik" 
+        linkedin: "https://www.linkedin.com/in/swostik-subhadarshan-371828280" 
       }, 
       image: "/Images/team/member-2.jpg"  
     },
@@ -31,9 +31,9 @@ export const teamData = {
       position: "Joint Secretary", 
       vertical: "helms", 
       contact: { 
-        email: "mukesh@csi.org.in", 
+        email: "battula.mukesh.bce23@itbhu.ac.in", 
         phone: "+91 98765 43212", 
-        linkedin: "https://linkedin.com/in/mukesh" 
+        linkedin: "https://www.linkedin.com/in/mukesh-battula-700419294?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
       }, 
       image: "/Images/team/member-3.jpg" 
     },
@@ -46,14 +46,14 @@ export const teamData = {
         position: "ESP Advisory", 
         vertical: "esp", 
         contact: { 
-          email: "nithya@csi.org.in",
-          linkedin: "https://linkedin.com/in/nithya"
+          email: "nithya.rajp.mst23@itbhu.ac.in",
+          linkedin: "https://www.linkedin.com/in/nithya-raj-p-241264290"
         }, 
         image:"/Images/team/member-4.jpg"  
       },
       { 
         id: "esp2", 
-        name: "Meghna Adsule", 
+        name: "Meghna", 
         position: "ESP Advisory", 
         vertical: "esp", 
         contact: { 
@@ -70,9 +70,9 @@ export const teamData = {
         position: "SDE Lead", 
         vertical: "sde", 
         contact: { 
-          email: "shubham@csi.org.in", 
+          email: "shubham.pkhetan.mat23@itbhu.ac.in", 
           phone: "+91 98765 43220", 
-          linkedin: "https://linkedin.com/in/shubham" 
+          linkedin: "www.linkedin.com/in/shubhamkhetan2005" 
         }, 
         image: "/Images/team/member-6.jpg" 
       },
@@ -82,9 +82,9 @@ export const teamData = {
         position: "SDE Member", 
         vertical: "sde", 
         contact: { 
-          email: "aryan@csi.org.in", 
+          email: "aryan.gautam.mec23@itbhu.ac.in", 
           phone: "+91 98765 43221", 
-          linkedin: "https://linkedin.com/in/aryan" 
+          linkedin: "https://www.linkedin.com/in/aryangautam890/" 
         }, 
         image: "/Images/team/member-7.jpg" 
       },
@@ -96,8 +96,8 @@ export const teamData = {
         position: "AI/ML Lead", 
         vertical: "ai", 
         contact: { 
-          email: "sachin@csi.org.in",
-          linkedin: "https://linkedin.com/in/sachin"
+          email: "sachin.student.civ23@itbhu.ac.in",
+          linkedin: "https://www.linkedin.com/in/sachin-44aa15287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
         }, 
         image: "/Images/team/member-8.jpg" 
       },
@@ -107,8 +107,8 @@ export const teamData = {
         position: "AI/ML Member", 
         vertical: "ai", 
         contact: { 
-          email: "prakshaale@csi.org.in",
-          linkedin: "https://linkedin.com/in/prakshaale"
+          email: "prakshaale.jain.civ23@itbhu.ac.in",
+          linkedin: "https://www.linkedin.com/in/prakshaale-jain"
         }, 
         image: "/Images/team/member-9.jpg"  
       },
