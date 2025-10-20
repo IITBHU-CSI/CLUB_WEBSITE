@@ -389,7 +389,7 @@ const VerticalSection = ({ members, verticalType }) => {
     esp: {
       component: <ESPRobotBackground />,
       gradient: "bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50",
-      info: { title: "ESP Team", subtitle: "Event & Sponsorship Pioneers" }
+      info: { title: "ESP Team", subtitle: "Enviornment, Society & Planet" }
     },
     sde: {
       component: <SDECodeRainBackground />,
