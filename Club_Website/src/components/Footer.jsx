@@ -16,6 +16,7 @@ const Footer = () => {
   const bulbImg = useRef(null);
   const layersRef = useRef([]);
   const containerRef = useRef(null);
+  const textContentRef = useRef(null);
   const ctx = useRef();
   const location = useLocation();
 
@@ -26,18 +27,17 @@ const Footer = () => {
   };
 
   useEffect(() => {
-      // Store current context before cleanup
-    const currentCtx = ctx.current;
+      const currentCtx = ctx.current;
     
-    // Only kill ScrollTriggers that are specifically from this component
     if (currentCtx) {
-      currentCtx.revert(); // This will only revert animations in this context
+      currentCtx.revert();
     }
     const img = bulbImg.current;
     const layers = layersRef.current;
     const container = containerRef.current;
+    const textContent = textContentRef.current;
     
-    if (!img || !container) return;
+    if (!img || !container || !textContent) return;
 
     gsap.set([img, ...layers], { 
       clearProps: "all" 
@@ -58,6 +58,11 @@ const Footer = () => {
       transformOrigin: "center center"
     });
 
+    gsap.set(textContent, {
+      zIndex: 50,
+      opacity: 1
+    });
+
     const initTimer = setTimeout(() => {
       ctx.current = gsap.context(() => {
 
@@ -73,7 +78,7 @@ const Footer = () => {
 
 
         layers.forEach((layer, index) => {
-          const delay = index * 0.08; // REDUCED: Less stagger between layers
+          const delay = index * 0.08;
           const rotation = (index % 2 === 0) ? 5 : -5;
           const scale = 1 + (index * 0.1);
           
@@ -82,7 +87,7 @@ const Footer = () => {
               opacity: 0,
               scale: 0,
               rotation: rotation * 2,
-              y: -50 - (index * 5) // REDUCED: Less vertical spread
+              y: -30 - (index * 2)
             },
             {
               opacity: 0.8 - (index * 0.15),
@@ -93,7 +98,7 @@ const Footer = () => {
               ease: "power2.out", 
               delay: delay
             },
-            "-=0.3" // REDUCED: Less overlap between animations
+            "-=0.3"
           );
         });
 
@@ -105,7 +110,7 @@ const Footer = () => {
           rotate: 0,
           duration: 0.8, 
           ease: "back.out(1.4)", 
-        }, "-=0.5"); // Starts 0.5 seconds before previous animation ends
+        }, "-=0.5");
 
 
         const floatingAnimation = gsap.timeline({ repeat: -1, yoyo: true });
@@ -130,7 +135,7 @@ const Footer = () => {
         const glowAnimation = gsap.timeline({ repeat: -1, yoyo: true });
         glowAnimation.to(img, {
           filter: "drop-shadow(0 0 20px rgba(255, 204, 0, 0.8)) drop-shadow(0 0 40px rgba(255, 170, 0, 0.6))",
-          duration: 1.5, // REDUCED: Faster glow pulses
+          duration: 1.5,
           ease: "sine.inOut"
         });
 
@@ -138,11 +143,11 @@ const Footer = () => {
         layers.forEach((layer, index) => {
           gsap.to(layer, {
             boxShadow: `0 0 ${15 + (index * 3)}px rgba(255, 204, 0, ${0.3 - (index * 0.1)})`,
-            duration: 2, // REDUCED: Faster glow cycles
+            duration: 2,
             repeat: -1,
             yoyo: true,
             ease: "sine.inOut",
-            delay: index * 0.2 // REDUCED: Less staggered glows
+            delay: index * 0.2
           });
         });
 
@@ -159,18 +164,23 @@ const Footer = () => {
   }, [location.pathname]);
 
   return (
-    <section className="bg-black relative overflow-hidden  rounded-tl-[3rem]  ">
+    <section className="bg-black relative overflow-hidden rounded-tl-[3rem]">
 
-      <footer className="bg-yellow-400 text-[#fffcfc] relative mt-10 -mb-8 ml-20 rounded-bl-[6rem] rounded-tr-[6rem] rounded-br-[6rem] rounded-tl-[6rem] ">
-        {/* Top Section */}
+      <footer className="bg-yellow-400 text-[#fffcfc] relative mt-10 -mb-8 ml-20 rounded-bl-[6rem] rounded-tr-[6rem] rounded-br-[6rem] rounded-tl-[6rem]">
         <div ref={containerRef} className="flex flex-col md:flex-row justify-between items-center rounded-tr-[3rem] rounded-tl-[3rem] p-10 md:p-16 relative min-h-[400px]">
           
-          {/* Text Section */}
-          <div className="z-10 max-w-lg relative" style={{ zIndex: 5 }}>
+          <div 
+            ref={textContentRef}
+            className="z-50 max-w-lg relative pointer-events-none"
+            style={{ 
+              zIndex: 50,
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+            }}
+          >
             <h2 className="text-4xl md:text-5xl font-semibold mb-4 drop-shadow-md text-[#ae0080d3]">
               Where ideas meet impact.
             </h2>
-            <p className="text-[#444444] mb-6 text-lg opacity-90">
+            <p className="text-[#444444] mb-6 text-lg opacity-100 font-medium">
               Let's team up to create meaningful, sustainable, and innovative
               projects together!
             </p>
@@ -180,38 +190,36 @@ const Footer = () => {
 
       <div 
         ref={addToLayers}
-        className="absolute right-40 top-1/4 w-80 h-80 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-[4rem] rotate-6 opacity-70"
+        className="absolute right-3 sm:right-20 md:right-32 lg:right-40 top-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-[4rem] rotate-6 opacity-50"
         style={{ zIndex: 1 }}
       />
       <div 
         ref={addToLayers}
-        className="absolute right-44 top-1/4 w-72 h-72 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-[3.5rem] -rotate-3 opacity-60"
+        className="absolute right-2 sm:right-22 md:right-34 lg:right-44 top-1/4 w-28 h-28 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-60 lg:h-60 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-[3.5rem] -rotate-3 opacity-40"
         style={{ zIndex: 2 }}
       />
       <div 
         ref={addToLayers}
-        className="absolute right-48 top-1/4 w-64 h-64 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-[3rem] rotate-2 opacity-50"
+        className="absolute right-1 sm:right-24 md:right-36 lg:right-48 top-1/4 w-24 h-24 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-[3rem] rotate-2 opacity-30"
         style={{ zIndex: 3 }}
       />
       <div 
         ref={addToLayers}
-        className="absolute right-52 top-1/4 w-56 h-56 bg-gradient-to-br from-purple-500 to-pink-600 rounded-[2.5rem] -rotate-6 opacity-40"
+        className="absolute -right-0 sm:right-26 md:right-38 lg:right-52 top-1/4 w-20 h-20 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 bg-gradient-to-br from-purple-500 to-pink-600 rounded-[2.5rem] -rotate-6 opacity-25"
         style={{ zIndex: 4 }}
       />
 
-      {/* Animated Lightbulb */}
       <img
         ref={bulbImg}
         src="/Images/csi-7.png"
         alt="Eco innovation illustration"
-        className="absolute right-40 top-1/4 w-72 md:w-[380px] h-auto z-10"
-        style={{ zIndex: 6 }}
+        className="absolute -right-5 sm:right-18 md:right-30 lg:right-40 top-1/4 w-40 sm:w-56 md:w-72 lg:w-80 xl:w-[420px] h-auto z-10"
+        style={{ zIndex: 10 }}
         onLoad={() => {
           setTimeout(() => ScrollTrigger.refresh(), 150);
         }}
       />
 
-      {/* Bottom Section */}
       <div className="flex flex-col md:flex-row justify-between items-center px-8 py-6 border-t border-[#8B5CF6]/30 mt-8">
         <div className="flex flex-col md:flex-row items-center gap-6 mb-4 md:mb-0">
           <span className="text-xl font-bold tracking-wide text-[#880163]">
@@ -230,7 +238,6 @@ const Footer = () => {
           </nav>
         </div>
 
-        {/* Social Icons */}
       <div className="flex gap-4 text-white text-3xl mt-5">
           <a
             href="https://www.instagram.com/csi_iitbhu/"
@@ -283,7 +290,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright */}
       <div className="text-center text-white text-sm pb-4">
         ©️ Copyright 2024{" "}
         <span className="font-semibold text-white-300">
