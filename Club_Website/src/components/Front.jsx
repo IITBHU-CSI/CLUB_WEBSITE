@@ -22,10 +22,7 @@ const Front = () => (
         </h1>
 
         {/* Subheading with Typewriter */}
-        <div
-          className="font-semibold text-gray-900 leading-snug text-[clamp(1.5rem,4vw,3rem)] max-w-[600px]"
-          style={{ minHeight: "9rem" }} // ✅ Keeps the height fixed
-        >
+        <div className="max-sm:h-[5rem] h-[9rem] font-semibold text-gray-900 leading-snug text-[clamp(1.5rem,4vw,3rem)] max-w-[600px]">
           <Typewriter
             words={[
               "Club of Sustainability and Innovation",

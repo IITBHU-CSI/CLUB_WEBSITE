@@ -249,7 +249,7 @@ export const HelmHero = ({ helms }) => {
     <section ref={sectionRef} className="py-20 px-4 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 font-poppins text-amber-900">
-          Meet The Helms
+          Meet The Helm
         </h2>
         <p className="text-center text-amber-700/80 mb-16 text-lg max-w-2xl mx-auto">
           Leading CSI with vision and dedication

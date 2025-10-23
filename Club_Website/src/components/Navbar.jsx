@@ -106,7 +106,7 @@ function Navbar() {
                 key={item}
                 to={links_tabs[item]}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md font-medium text-sm sm:text-base ${
+                className={`block px-3 py-2 rounded-md font-medium text-sm sm:text-base max-sm:text-center ${
                   location.pathname === links_tabs[item]
                     ? "bg-[#880163] text-white shadow-md"
                     : "text-gray-900 hover:bg-gray-100"
