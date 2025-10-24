@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react"; 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import advisory from "/vertical_ic/advisory.png";
@@ -12,12 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const verticals = [
   { label: "Creative", icon: creative, details: "Earn recognition & prizes." },
   { label: "Outreach", icon: outreach, details: "Collaborate with peers." },
-
-  {
-    label: "ESP-Advisory",
-    icon: advisory,
-    details: "Expert guidance from pros.",
-  },
+  { label: "ESP-Advisory", icon: advisory, details: "Expert guidance from pros." },
   { label: "AI-ML", icon: ai, details: "Learn hot technologies." },
   { label: "SDE", icon: sde, details: "Find your next step." },
 ];
@@ -38,15 +33,24 @@ export default function HomeVerticals() {
     radius: 220,
   });
 
+  // Update dimensions & responsive icon size
   useEffect(() => {
     const updateDims = () => {
       const containerWidth = containerRef.current?.offsetWidth || 700;
       const scale = containerWidth / 700;
-      setDims({
-        iconSize: 70 * scale,
-        radius: 220 * scale,
-      });
+
+      let iconSize = 70 * scale;
+      let radius = 220 * scale;
+
+      // Increase size for max-sm devices (<=640px)
+      if (window.innerWidth <= 640) {
+        iconSize *= 1.9; // 30% bigger icons
+        radius *= 1.1;   // slightly bigger radius for spacing
+      }
+
+      setDims({ iconSize, radius });
     };
+
     updateDims();
     window.addEventListener("resize", updateDims);
     return () => window.removeEventListener("resize", updateDims);
@@ -185,7 +189,6 @@ export default function HomeVerticals() {
               padding: 6,
             }}
           >
-            {/* Render imported image if icon is an image path, otherwise render emoji/text */}
             {typeof v.icon === "string" &&
             /\.(png|jpe?g|svg|webp|gif)$/i.test(v.icon) ? (
               <img
@@ -257,7 +260,7 @@ export default function HomeVerticals() {
               fontWeight: 700,
               fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
               marginTop: 8,
-              color: "#880163", // <- solid black text
+              color: "#880163",
             }}
           >
             {verticals[selected].label}
