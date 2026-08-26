@@ -8,6 +8,7 @@ import Events from "./components/Events";
 import Gallery from "./pages/Gallery";
 import HomePage from "./pages/HomePage";
 import OurTeam from "./pages/OurTeam";
+import CertificateVerification from "./pages/CertificateVerification";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
 
           <Route path="/events" element={<Events />} />
+          <Route path="/verify" element={<CertificateVerification />} />
 
           <Route
             path="/front"
