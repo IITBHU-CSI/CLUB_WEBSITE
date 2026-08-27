@@ -78,5 +78,14 @@ export const certificateData = [
     status: "Verified",
     type: "Certificate of Completion",
     duration: "3 Days"
-  }
+  },{
+    serialNumber: "CSI/IITBHU/2026/009",
+    name: "S Balaji",
+    event: "IoT & Embedded Systems Workshop",
+    department: "Department of Electronics Engineering, IIT (BHU) Varanasi",
+    issueDate: "February 15, 2026",
+    status: "Verified",
+    type: "Certificate of Completion",
+    duration: "3 Days"
+  },
 ];
